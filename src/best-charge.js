@@ -148,7 +148,7 @@ function getReceiptDetailByIdMap(idMap) {
 function groupById(params) {
   var countMap = new Map();
   params.forEach(element => {
-    var { id, count } = getIdAndCountFromId(element);
+    var { id, count } = parseIdAndCountFromId(element);
     if (countMap.has(id)) {
       count = countMap.get(id) + count;
     }
@@ -160,7 +160,7 @@ function groupById(params) {
 }
 
 
-function getIdAndCountFromId(element) {
+function parseIdAndCountFromId(element) {
   var count = 1;
   var id = element;
   if (element.indexOf(' x ') != -1) {
